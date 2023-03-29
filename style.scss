@@ -7,9 +7,17 @@ html {
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'sofia sans';
+}
+
 a {
     text-decoration: none;
     color: $secundary-color-light;
+    
+    &:hover{
+        color: $primary-color-light;
+    }
 }
 
 .navbar {
@@ -21,12 +29,20 @@ a {
         display: flex;
         flex-wrap: wrap;
         padding: 1rem;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
 
         .navbar-logo {
             margin-right: auto;
+            font-size: 1.8rem;
         }
 
         .menu-icon {
+            @media (min-width:768px){
+                display: none;
+            }
+
             &.exit {
                 .line {
                     &:first-child {
@@ -51,6 +67,7 @@ a {
                 margin: 5px 0;
                 transition: 0.2s;
             }
+        
         }
 
         .menu-list {
@@ -58,11 +75,21 @@ a {
             flex: 0 0 100%;
             display: none;
 
+            @media (min-width:768px){
+                display: flex;
+                flex: 0 0 60%;
+                justify-content: space-between;
+            }
+
             &.active {
                 display: flex;
                 height: 100vh;
                 flex-wrap: wrap;
                 align-content: center;
+
+                @media (min-width:768px){
+                    height: initial;
+                }
             }
 
             .menu-item {
@@ -70,9 +97,11 @@ a {
                 text-align: center;
                 padding: .5rem;
 
-                .menu-link {
-                    //
+                @media (min-width:768px){
+                    padding: 0;
+                    flex: 0 0 auto;
                 }
+
             }
         }
 
