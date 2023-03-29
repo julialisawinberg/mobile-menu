@@ -1,3 +1,5 @@
+@import 'variables';
+
 *,
 html {
     margin: 0;
@@ -5,24 +7,80 @@ html {
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: $secundary-color-light;
+}
+
 .navbar {
+    background-color: $primary-color-dark;
+    position: fixed;
+    width: 100%;
 
-    //
-    a {
-        //
-    }
+    .menu-main {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
 
-    .menu-icon {
-        .line {
-            //
+        .navbar-logo {
+            margin-right: auto;
         }
-    }
 
-    .menu-list {
-        .menu-item {
-            .menu-link {
-                //
+        .menu-icon {
+            &.exit {
+                .line {
+                    &:first-child {
+                        transform: rotate(45deg) translate(5px, 0px);
+                    }
+
+                    &:nth-child(2) {
+                        display: none;
+                    }
+
+                    &:last-child {
+                        transform: rotate(-45deg) translate(5px, 0px);
+                    }
+                }
+            }
+
+            .line {
+                background-color: $secundary-color-light;
+                width: 25px;
+                height: 2px;
+                display: block;
+                margin: 5px 0;
+                transition: 0.2s;
             }
         }
+
+        .menu-list {
+            list-style: none;
+            flex: 0 0 100%;
+            display: none;
+
+            &.active {
+                display: flex;
+                height: 100vh;
+                flex-wrap: wrap;
+                align-content: center;
+            }
+
+            .menu-item {
+                flex: 0 0 100%;
+                text-align: center;
+                padding: .5rem;
+
+                .menu-link {
+                    //
+                }
+            }
+        }
+
     }
+
+}
+
+section {
+    height: 100vh;
+    background-color: $primary-color-light;
 }
